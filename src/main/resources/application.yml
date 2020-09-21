@@ -1,0 +1,23 @@
+server:
+  port: 8107
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: 'admin'
+    password: '@Pass123#'
+
+    # Open Send Confirmation
+    # Open Send Failure Return
+    # Consumer ack has three modes: NONE, AUTO, MANUAL
+    # NONE: No matter whether the consumption is successful or not, mq excludes messages, which is the default configuration.
+    # MANUAL: Manual Response
+    # AUTO: Automatic reply unless MessageListener throws an exception.
+    publisher-returns: true
+    publisher-confirms: true
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        acknowledge-mode: manual
+
